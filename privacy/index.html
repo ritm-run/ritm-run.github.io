@@ -43,7 +43,7 @@ li { margin: .35rem 0; }
 
 <h2>In short</h2>
 <ul>
-<li>Ritm has no accounts and no server of its own. The developer receives no data from the app, except error reports, and only if you agree (see “Error reports” below).</li>
+<li>Ritm has no accounts of its own and no server of its own. The developer receives no data from the app, except error reports, and only if you agree (see “Error reports” below). A backup to your own Google Drive, if you choose it, goes to your Drive and not to the developer (see “Backup to your Google Drive” below).</li>
 <li>Your location, steps, weight, height, year of birth, workouts and settings stay on your phone.</li>
 <li>No ads, no analytics, no tracking, and nothing is sold.</li>
 <li>Only the map, the measuring of a workout's elevation gain, the likely path through a gap in its GPS track, a small update file and, if you agree, the error reports use the internet. The map and the gap path load map data from OpenFreeMap, and the elevation gain terrain data from Amazon Web Services, and those hosts can see your IP address and which part of the map you are looking at, or roughly where your workout was. The small update file comes from the developer's page on GitHub Pages, and GitHub also sees your IP address.</li>
@@ -62,16 +62,17 @@ li { margin: .35rem 0; }
 <li><strong>Settings and progress:</strong> step goal, streak, trophies, theme, language, voice and map options and, if you choose one, a background picture (picked with the system photo picker and copied into the app).</li>
 <li><strong>A crash note:</strong> if the app crashes, a short text file with the error, the app version, the phone model and the Android version is saved on the phone. If you agreed to error reports, it is sent at the next start and deleted; if not, Ritm shows it to you, and it leaves the phone only if you tap Send for it (see “Error reports” below) or choose to send it with an app of your own.</li>
 <li><strong>The activity log and the reports waiting:</strong> a file of the last 300 short lines about what the app did (the time in UTC and words such as “workout start” or “gps WEAK”: never a place or a figure of a workout), the reports that could not be sent for lack of a network (at most 3), and your choice about error reports.</li>
+<li><strong>The Google Drive section:</strong> if you use the backup to Google Drive, the e-mail of the account you signed in with (only to show it on the screen), when the last copy was made and how big it was, and whether the nightly copy is on. It is not part of a backup file.</li>
 </ul>
 
 <h2>Permissions and what they are for</h2>
 <ul>
 <li><strong>Location (precise and approximate):</strong> to record your route during a workout and to show your position on the Start screen while the app is open. Ritm does not ask for background location. While a workout is recording, a foreground service keeps it running with a visible notification, and it stops when you finish.</li>
 <li><strong>Physical activity:</strong> to read the step counter of the phone.</li>
-<li><strong>Notifications:</strong> the workout controls, the all-day steps card and the optional evening streak reminder.</li>
+<li><strong>Notifications:</strong> the workout controls, the all-day steps card and the optional evening streak reminder and, if you use the nightly copy to Google Drive, a notice when Google needs you to sign in again.</li>
 <li><strong>Foreground service (location, health):</strong> so that a workout recording and the step counter are not cut off when the screen turns off.</li>
-<li><strong>Run at startup:</strong> to bring back the steps card and the step reading after the phone restarts.</li>
-<li><strong>Internet:</strong> to load the map, the map tiles that draw the likely path through a gap in the GPS track of a workout, and the elevation tiles that measure its elevation gain, and to download the small update file (see below).</li>
+<li><strong>Run at startup:</strong> to bring back the steps card and the step reading after the phone restarts. It also lets the nightly copy to Google Drive, if you switched it on, survive a restart.</li>
+<li><strong>Internet:</strong> to load the map, the map tiles that draw the likely path through a gap in the GPS track of a workout, and the elevation tiles that measure its elevation gain (see below), to download the small update file (see below), and for the optional backup to your Google Drive.</li>
 <li><strong>Vibration and keeping the processor awake:</strong> for the optional vibration cues and so that a recording continues with the screen off.</li>
 </ul>
 <p>Ritm does not ask Android to exempt it from battery optimisation. The phone setup screen only opens the battery settings of the system, and you decide what to change there.</p>
@@ -108,6 +109,18 @@ li { margin: .35rem 0; }
 <p>A report does not contain your location or any coordinates, routes, workouts, steps, profile (height, weight, year of birth), name, e-mail, account, advertising ID or device identifiers. Before sending, Ritm also removes from the text anything that looks like a coordinate, an e-mail address or an IP address, in case an error message printed one. The report number is not linked to you, so the developer cannot tell whose report it is; to have a report removed, write to the contact address and describe it.</p>
 <p>The developer reads reports to find and fix errors and keeps one only as long as that takes. Google handles the form under its own notice: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Without a network a report waits on the phone (the last 3 at most) and is sent at a later start.</p>
 
+<h3>Backup to your Google Drive (only if you choose it)</h3>
+<p>In Me, Data &amp; backup, you can back up to your own Google Drive: by hand (“Back up now”) or every night (“Every night on Wi-Fi”). Nothing happens until you press the button or the switch, and Google then asks you to sign in and to allow Ritm to use its own folder.</p>
+<ul>
+<li><strong>What goes:</strong> the same file as “Save a backup” (all your workouts with their GPS routes, your steps by hour, your settings and profile), compressed. The two latest copies are kept; older ones are deleted.</li>
+<li><strong>Where:</strong> the hidden “app data” folder of your own Google Drive (the permission <em>drive.appdata</em>). Only Ritm can read it, on your phone and with your permission: it does not show in the file list of Drive, other apps cannot read it, and the developer can neither see it nor open it. Ritm does not ask for access to any other file of your Drive. The copy goes straight from your phone to your Drive over HTTPS (<strong>www.googleapis.com</strong>, Google LLC) and is kept under the terms of your Google account: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. It uses up space in the storage of your Google account.</li>
+<li><strong>Who can read it:</strong> you, through Ritm, on a phone where you sign in to the same account, and Google as the host of your Drive. Not the developer.</li>
+<li><strong>The nightly copy</strong> is made at about midnight, only on Wi-Fi (never on mobile data), only when the battery is not low, and not during a workout. If Google needs you to sign in again, Ritm tells you with a notification and does nothing more until you do.</li>
+<li><strong>Restoring</strong> brings a copy back into Ritm on a phone where you sign in to the same account. On a new install Ritm offers once to look for a copy, and it looks only after you have signed in.</li>
+<li><strong>To delete it:</strong> in Google Drive (on the web or in its app) open Settings, then Manage apps, find Ritm and choose “Delete hidden app data”; or take Ritm's access away in your Google Account (Security, Your connections to third-party apps and services). Switching the nightly copy off stops new copies but does not delete the ones already there.</li>
+</ul>
+<p>On the phone itself Ritm keeps only the e-mail of the account you signed in with (to show it), when and how big the last copy was, and the state of the switch. The sign-in goes through Google Play services on your phone; Ritm never sees your password.</p>
+
 <h3>Things you send yourself</h3>
 <p>When you share a result card or a GPX file, save a backup, send a problem report through another app or open a link (licence pages, a music player, the Play Store page of a music app), Ritm hands the content to the system: the share sheet, the file picker or the browser. It goes where you choose, and Ritm does not see it afterwards. A backup file contains all your workouts including their GPS routes, your steps by hour, and your settings and profile (height, weight, sex and year of birth, your answers about your running and your resting pulse, if you filled them in), so keep it somewhere you trust.</p>
 
@@ -116,15 +129,15 @@ li { margin: .35rem 0; }
 
 <h2>What Ritm does not do</h2>
 <ul>
-<li>no account or sign-in, and no server of its own;</li>
+<li>no Ritm account and no server of its own (the only sign-in is Google's, and only if you choose to back up to your Google Drive);</li>
 <li>no advertising and no advertising ID;</li>
-<li>no analytics or tracking service, no crash-reporting service or library of a third party (the error reports you agree to send go only to the developer's own form, described above), and no third-party library that collects data (the map library, the database and the network library run inside the app and send nothing home);</li>
-<li>no selling of data, and no sharing of it with anyone except the form service that carries the error reports you agree to send.</li>
+<li>no analytics or tracking service, no crash-reporting service or library of a third party (the error reports you agree to send go only to the developer's own form, described above), and no third-party library that collects data (the map library, the database and the network library run inside the app and send nothing home; the one Google component is the sign-in of Google Play services, which runs only when you use the backup to Google Drive);</li>
+<li>no selling of data, and no sharing of it with anyone except the form service that carries the error reports you agree to send and Google Drive, which holds the copies you choose to make.</li>
 </ul>
-<p>The app switches off the automatic cloud backup of Android and the device-to-device transfer for its data. To move to a new phone use the backup inside the app (Me, Data &amp; backup).</p>
+<p>The app switches off the automatic cloud backup of Android and the device-to-device transfer for its data. To move to a new phone use the backup inside the app (Me, Data &amp; backup): a file, or a copy on your own Google Drive.</p>
 
 <h2>Keeping and deleting data</h2>
-<p>Your data stays on your phone until you remove it: delete a workout in History, or clear the storage of the app or uninstall it to remove everything. The developer holds no copy of your data, so there is nothing to delete on a server; the one exception is an error report you agreed to send, which is kept in the developer's private spreadsheet only as long as it takes to fix the problem. Backup or export files that you saved elsewhere are yours to delete.</p>
+<p>Your data stays on your phone until you remove it: delete a workout in History, or clear the storage of the app or uninstall it to remove everything. The developer holds no copy of your data, so there is nothing to delete on a server; the one exception is an error report you agreed to send, which is kept in the developer's private spreadsheet only as long as it takes to fix the problem. Backup or export files that you saved elsewhere are yours to delete. A copy on your Google Drive stays there until you delete it (see “Backup to your Google Drive” above); removing Ritm from the phone does not delete it.</p>
 
 <h2>Your rights</h2>
 <p>Because the developer does not receive or store personal data about you (an error report holds none and is linked to no one), there is nothing to access, correct, export or erase on the developer's side: your data is under your control on your phone. To have an error report removed, write to the contact address and describe it. For anything about map requests contact the hosts named above. For everything else write to the contact address.</p>
@@ -133,7 +146,7 @@ li { margin: .35rem 0; }
 <p>Ritm is not directed at children under 13 and does not knowingly collect data from anyone.</p>
 
 <h2>Security</h2>
-<p>Your data is kept in the private storage of the app, which other apps cannot read, and map requests, the update file and error reports are encrypted with HTTPS.</p>
+<p>Your data is kept in the private storage of the app, which other apps cannot read, and map requests, the update file, error reports and the copies sent to your Google Drive are encrypted with HTTPS.</p>
 
 <h2>Health note</h2>
 <p>Ritm is a fitness app, not a medical device. It does not diagnose, treat, cure or prevent any medical condition. Calories, distance estimated from steps and the detection of running and walking are estimates. Consult a doctor before you begin a new exercise programme.</p>
@@ -149,7 +162,7 @@ li { margin: .35rem 0; }
 
 <h2>Коротко</h2>
 <ul>
-<li>У «Ритма» нет аккаунтов и нет собственного сервера. Разработчик не получает от приложения никаких данных, кроме отчётов об ошибках, и только если вы согласитесь (см. «Отчёты об ошибках» ниже).</li>
+<li>У «Ритма» нет собственных аккаунтов и нет собственного сервера. Разработчик не получает от приложения никаких данных, кроме отчётов об ошибках, и только если вы согласитесь (см. «Отчёты об ошибках» ниже). Копия на ваш собственный Google Диск, если вы её выберете, уходит на ваш Диск, а не к разработчику (см. «Копия на ваш Google Диск» ниже).</li>
 <li>Геопозиция, шаги, вес, рост, год рождения, тренировки и настройки остаются на вашем телефоне.</li>
 <li>Нет рекламы, аналитики и слежки; ничего не продаётся.</li>
 <li>В интернет ходят только карта, измерение набора высоты за тренировку, предполагаемый путь через провал в GPS-треке, небольшой файл обновления и, если вы согласитесь, отчёты об ошибках. Карта и путь через провал загружают данные карты с OpenFreeMap, а набор высоты — данные рельефа с Amazon Web Services, и эти серверы видят ваш IP-адрес и то, какую часть карты вы смотрите, или примерно где была тренировка. Файл обновления приходит со страницы разработчика на GitHub Pages, и GitHub тоже видит ваш IP-адрес.</li>
@@ -168,16 +181,17 @@ li { margin: .35rem 0; }
 <li><strong>Настройки и прогресс:</strong> цель по шагам, серия, трофеи, тема, язык, параметры голоса и карты и, если вы выберете, картинка на фон (выбирается системным выбором фото и копируется в приложение).</li>
 <li><strong>Запись о сбое:</strong> если приложение вылетело, на телефоне сохраняется короткий текстовый файл с ошибкой, версией приложения, моделью телефона и версией Android. Если вы согласились на отчёты об ошибках, при следующем запуске он отправляется и удаляется; если нет, «Ритм» показывает его вам, и он покидает телефон, только если вы нажмёте «Отправить» для этого отчёта (см. «Отчёты об ошибках» ниже) или выберете для отправки своё приложение.</li>
 <li><strong>Журнал работы и отчёты в очереди:</strong> файл из последних 300 коротких строк о том, что делало приложение (время по UTC и слова вроде «workout start» или «gps WEAK»: никогда не место и не цифры тренировки), отчёты, которые не удалось отправить из-за отсутствия сети (не больше 3), и ваш выбор об отчётах об ошибках.</li>
+<li><strong>Раздел Google Диска:</strong> если вы пользуетесь копией на Google Диск — почта аккаунта, в который вы вошли (только чтобы показать её на экране), время и размер последней копии и то, включена ли ночная копия. В файл резервной копии это не входит.</li>
 </ul>
 
 <h2>Разрешения и зачем они нужны</h2>
 <ul>
 <li><strong>Геопозиция (точная и приблизительная):</strong> чтобы записать маршрут во время тренировки и показать ваше место на экране «Старт», пока приложение открыто. «Ритм» не запрашивает геопозицию в фоне. Пока идёт запись тренировки, её поддерживает служба переднего плана с заметным уведомлением; когда вы завершаете тренировку, служба останавливается.</li>
 <li><strong>Физическая активность:</strong> чтобы считывать счётчик шагов телефона.</li>
-<li><strong>Уведомления:</strong> управление тренировкой, карточка шагов за день и вечернее напоминание о серии (по желанию).</li>
+<li><strong>Уведомления:</strong> управление тренировкой, карточка шагов за день и вечернее напоминание о серии (по желанию) и, если вы пользуетесь ночной копией на Google Диск, сообщение о том, что Google нужно, чтобы вы вошли снова.</li>
 <li><strong>Служба переднего плана (геопозиция, здоровье):</strong> чтобы запись тренировки и счёт шагов не прерывались, когда экран гаснет.</li>
-<li><strong>Запуск при включении телефона:</strong> чтобы вернуть карточку шагов и считывание шагов после перезагрузки.</li>
-<li><strong>Интернет:</strong> чтобы загружать карту, плитки карты для предполагаемого пути через провал в GPS-треке тренировки плитки высот для измерения набора высоты и небольшой файл обновления (см. ниже).</li>
+<li><strong>Запуск при включении телефона:</strong> чтобы вернуть карточку шагов и считывание шагов после перезагрузки. Он же позволяет ночной копии на Google Диск, если вы её включили, пережить перезагрузку.</li>
+<li><strong>Интернет:</strong> чтобы загружать карту, плитки карты для предполагаемого пути через провал в GPS-треке тренировки и плитки высот для измерения набора высоты (см. ниже), небольшой файл обновления (см. ниже), а также для необязательной копии на ваш Google Диск.</li>
 <li><strong>Вибрация и удержание процессора:</strong> для вибро-сигналов по желанию и чтобы запись шла с выключенным экраном.</li>
 </ul>
 <p>«Ритм» не просит Android исключить его из оптимизации батареи. Экран подготовки телефона лишь открывает системные настройки батареи, и что там менять — решаете вы.</p>
@@ -214,6 +228,18 @@ li { margin: .35rem 0; }
 <p>В отчёте нет геопозиции и никаких координат, маршрутов, тренировок, шагов, профиля (рост, вес, год рождения), имени, e-mail, аккаунта, рекламного идентификатора и идентификаторов устройства. Перед отправкой «Ритм» к тому же убирает из текста всё, что похоже на координату, адрес e-mail или IP-адрес, на случай, если их напечатало сообщение об ошибке. Номер отчёта ни с кем не связан, поэтому разработчик не может узнать, чей это отчёт; чтобы отчёт удалили, напишите на контактный адрес и опишите его.</p>
 <p>Разработчик читает отчёты, чтобы найти и исправить ошибки, и хранит отчёт только столько, сколько на это нужно. Google обрабатывает форму по собственному уведомлению: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Без сети отчёт ждёт на телефоне (не больше последних 3) и уходит при одном из следующих запусков.</p>
 
+<h3>Копия на ваш Google Диск (только если вы выберете)</h3>
+<p>В разделе «Я» → «Данные и копия» можно сохранять копию на ваш собственный Google Диск: вручную («Сохранить сейчас») или каждую ночь («Каждую ночь по Wi-Fi»). Пока вы не нажмёте кнопку или не включите переключатель, ничего не происходит; тогда Google попросит вас войти в аккаунт и разрешить «Ритму» пользоваться его собственной папкой.</p>
+<ul>
+<li><strong>Что уходит:</strong> тот же файл, что и при «Сохранить резервную копию» (все тренировки с GPS-маршрутами, шаги по часам, настройки и профиль), в сжатом виде. Хранятся две последние копии, более старые удаляются.</li>
+<li><strong>Куда:</strong> в скрытую папку «данные приложения» вашего собственного Google Диска (разрешение <em>drive.appdata</em>). Прочитать её может только «Ритм», на вашем телефоне и с вашего разрешения: в списке файлов Диска её не видно, другие приложения её не читают, а разработчик не может ни увидеть её, ни открыть. «Ритм» не просит доступа ни к каким другим файлам вашего Диска. Копия идёт прямо с вашего телефона на ваш Диск по HTTPS (<strong>www.googleapis.com</strong>, Google LLC) и хранится на условиях вашего аккаунта Google: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Она занимает место в хранилище вашего аккаунта Google.</li>
+<li><strong>Кто может её прочитать:</strong> вы, через «Ритм», на телефоне, где вы вошли в тот же аккаунт, и Google как хозяин вашего Диска. Не разработчик.</li>
+<li><strong>Ночная копия</strong> делается примерно в полночь, только по Wi-Fi (никогда по мобильному интернету), только когда батарея не разряжена и не во время тренировки. Если Google понадобится, чтобы вы вошли снова, «Ритм» скажет об этом уведомлением и больше ничего не будет делать, пока вы не войдёте.</li>
+<li><strong>Восстановление</strong> возвращает копию в «Ритм» на телефоне, где вы вошли в тот же аккаунт. После новой установки «Ритм» один раз предлагает поискать копию и ищет её, только когда вы вошли.</li>
+<li><strong>Как удалить:</strong> в Google Диске (на сайте или в приложении) откройте «Настройки», затем «Управление приложениями», найдите «Ритм» и выберите «Удалить скрытые данные приложения»; или отзовите доступ «Ритма» в аккаунте Google («Безопасность», «Ваши связи со сторонними приложениями и сервисами»). Если выключить ночную копию, новые копии перестанут появляться, но уже сохранённые не удалятся.</li>
+</ul>
+<p>На самом телефоне «Ритм» хранит только почту аккаунта, в который вы вошли (чтобы показать её), время и размер последней копии и положение переключателя. Вход идёт через сервисы Google Play на вашем телефоне; пароля «Ритм» не видит.</p>
+
 <h3>То, что вы отправляете сами</h3>
 <p>Когда вы делитесь карточкой результата или файлом GPX, сохраняете резервную копию, отправляете сообщение об ошибке через другое приложение или открываете ссылку (страницы лицензий, музыкальный плеер, страница музыкального приложения в Play Маркете), «Ритм» передаёт содержимое системе: окну «Поделиться», выбору файла или браузеру. Оно уходит туда, куда вы выберете, и «Ритм» после этого его не видит. Резервная копия содержит все тренировки вместе с GPS-маршрутами, шаги по часам, настройки и профиль (рост, вес, пол и год рождения, ответы о вашем беге и пульс в покое, если вы их указали), поэтому храните файл там, где вы доверяете.</p>
 
@@ -222,15 +248,15 @@ li { margin: .35rem 0; }
 
 <h2>Чего «Ритм» не делает</h2>
 <ul>
-<li>нет аккаунта и входа, нет собственного сервера;</li>
+<li>нет аккаунта «Ритма» и нет собственного сервера (единственный вход — вход в Google, и только если вы выберете копию на ваш Google Диск);</li>
 <li>нет рекламы и рекламного идентификатора;</li>
-<li>нет аналитики и слежки, нет стороннего сервиса или библиотеки для отчётов о сбоях (отчёты об ошибках, на которые вы согласились, уходят только в собственную форму разработчика, описанную выше), нет сторонних библиотек, которые что-либо собирают (библиотека карты, база данных и сетевая библиотека работают внутри приложения и ничего не отправляют);</li>
-<li>данные не продаются и никому не передаются, кроме сервиса форм, который доставляет отчёты об ошибках, на отправку которых вы согласились.</li>
+<li>нет аналитики и слежки, нет стороннего сервиса или библиотеки для отчётов о сбоях (отчёты об ошибках, на которые вы согласились, уходят только в собственную форму разработчика, описанную выше), нет сторонних библиотек, которые что-либо собирают (библиотека карты, база данных и сетевая библиотека работают внутри приложения и ничего не отправляют; единственный компонент Google — вход через сервисы Google Play, он работает, только когда вы пользуетесь копией на Google Диск);</li>
+<li>данные не продаются и никому не передаются, кроме сервиса форм, который доставляет отчёты об ошибках, на отправку которых вы согласились, и Google Диска, где лежат копии, которые вы решили сделать.</li>
 </ul>
-<p>Приложение отключает автоматическое облачное резервное копирование Android и перенос данных между устройствами. Чтобы перейти на новый телефон, используйте резервную копию в приложении («Я» → «Данные и копия»).</p>
+<p>Приложение отключает автоматическое облачное резервное копирование Android и перенос данных между устройствами. Чтобы перейти на новый телефон, используйте резервную копию в приложении («Я» → «Данные и копия»): файл или копию на ваш Google Диск.</p>
 
 <h2>Хранение и удаление данных</h2>
-<p>Ваши данные остаются на телефоне, пока вы их не удалите: удалите тренировку в «Истории», либо очистите данные приложения или удалите приложение — тогда исчезнет всё. У разработчика нет копии ваших данных, поэтому на сервере удалять нечего; единственное исключение — отчёт об ошибке, на отправку которого вы согласились: он лежит в закрытой таблице разработчика только пока нужен, чтобы исправить проблему. Файлы резервной копии и экспорта, сохранённые вами в других местах, удаляете вы.</p>
+<p>Ваши данные остаются на телефоне, пока вы их не удалите: удалите тренировку в «Истории», либо очистите данные приложения или удалите приложение — тогда исчезнет всё. У разработчика нет копии ваших данных, поэтому на сервере удалять нечего; единственное исключение — отчёт об ошибке, на отправку которого вы согласились: он лежит в закрытой таблице разработчика только пока нужен, чтобы исправить проблему. Файлы резервной копии и экспорта, сохранённые вами в других местах, удаляете вы. Копия на вашем Google Диске лежит там, пока вы её не удалите (см. «Копия на ваш Google Диск» выше); удаление «Ритма» с телефона её не удаляет.</p>
 
 <h2>Ваши права</h2>
 <p>Поскольку разработчик не получает и не хранит персональные данные о вас (в отчёте об ошибке их нет, и он ни с кем не связан), на его стороне нечего запрашивать, исправлять, выгружать или стирать: ваши данные находятся под вашим контролем на телефоне. Чтобы удалили отчёт об ошибке, напишите на контактный адрес и опишите его. По вопросам о запросах карты обращайтесь к серверам, названным выше. По всему остальному пишите на контактный адрес.</p>
@@ -239,7 +265,7 @@ li { margin: .35rem 0; }
 <p>«Ритм» не предназначен для детей младше 13 лет и сознательно не собирает данные ни о ком.</p>
 
 <h2>Безопасность</h2>
-<p>Данные лежат в закрытом хранилище приложения, которое другие приложения прочитать не могут, а запросы карты, файл обновления и отчёты об ошибках шифруются по HTTPS.</p>
+<p>Данные лежат в закрытом хранилище приложения, которое другие приложения прочитать не могут, а запросы карты, файл обновления, отчёты об ошибках и копии, которые уходят на ваш Google Диск, шифруются по HTTPS.</p>
 
 <h2>Замечание о здоровье</h2>
 <p>«Ритм» — приложение для фитнеса, а не медицинское устройство. Оно не диагностирует, не лечит и не предотвращает никакие заболевания. Калории, дистанция по шагам и распознавание бега и ходьбы — оценки. Перед началом новой программы тренировок проконсультируйтесь с врачом.</p>
@@ -255,7 +281,7 @@ li { margin: .35rem 0; }
 
 <h2>בקצרה</h2>
 <ul>
-<li>לריטם אין חשבונות ואין שרת משלה. המפתח לא מקבל מהאפליקציה שום מידע, מלבד דוחות שגיאה, ורק אם תסכים (ראה «דוחות שגיאה» בהמשך).</li>
+<li>לריטם אין חשבונות משלה ואין שרת משלה. המפתח לא מקבל מהאפליקציה שום מידע, מלבד דוחות שגיאה, ורק אם תסכים (ראה «דוחות שגיאה» בהמשך). גיבוי ל-Google Drive שלך, אם תבחר בו, הולך אל ה-Drive שלך ולא אל המפתח (ראה «גיבוי ל-Google Drive שלך» בהמשך).</li>
 <li>המיקום, הצעדים, המשקל, הגובה, שנת הלידה, האימונים וההגדרות שלך נשארים בטלפון שלך.</li>
 <li>בלי פרסומות, בלי ניתוח נתונים ובלי מעקב; שום דבר לא נמכר.</li>
 <li>רק המפה, מדידת הטיפוס המצטבר של אימון, המסלול המשוער דרך פער במסלול ה-GPS שלו, קובץ עדכון קטן, ואם תסכים גם דוחות שגיאה, משתמשים באינטרנט. המפה והמסלול המשוער טוענים נתוני מפה מ-OpenFreeMap, ומדידת הטיפוס נתוני תבליט מ-Amazon Web Services, והשרתים האלה רואים את כתובת ה-IP שלך ואת החלק במפה שאתה מסתכל עליו, או בערך היכן היה האימון. קובץ העדכון מגיע מהדף של המפתח ב-GitHub Pages, וגם GitHub רואה את כתובת ה-IP שלך.</li>
@@ -274,16 +300,17 @@ li { margin: .35rem 0; }
 <li><strong>הגדרות והתקדמות:</strong> יעד צעדים, רצף, גביעים, ערכת נושא, שפה, אפשרויות קול ומפה, ואם תבחר — תמונת רקע (נבחרת בבורר התמונות של המערכת ומועתקת לאפליקציה).</li>
 <li><strong>רישום קריסה:</strong> אם האפליקציה קורסת, נשמר בטלפון קובץ טקסט קצר עם השגיאה, גרסת האפליקציה, דגם הטלפון וגרסת אנדרואיד. אם הסכמת לדוחות שגיאה, הוא נשלח בהפעלה הבאה ונמחק; אם לא, ריטם תציג אותו לך, והוא עוזב את הטלפון רק אם תקיש על «שלח» עבור הדוח הזה (ראה «דוחות שגיאה» בהמשך) או תבחר לשלוח אותו באפליקציה משלך.</li>
 <li><strong>יומן הפעילות ודוחות ממתינים:</strong> קובץ של 300 השורות הקצרות האחרונות על מה שהאפליקציה עשתה (השעה ב-UTC ומילים כמו "workout start" או "gps WEAK": אף פעם לא מקום או נתון של אימון), דוחות שלא ניתן היה לשלוח בגלל חוסר רשת (3 לכל היותר), והבחירה שלך לגבי דוחות שגיאה.</li>
+<li><strong>מדור Google Drive:</strong> אם אתה משתמש בגיבוי ל-Google Drive, כתובת הדוא״ל של החשבון שהתחברת אליו (רק כדי להציג אותה על המסך), מתי נעשה הגיבוי האחרון וכמה הוא גדול, והאם הגיבוי הלילי פועל. זה לא חלק מקובץ הגיבוי.</li>
 </ul>
 
 <h2>הרשאות ולמה הן נחוצות</h2>
 <ul>
 <li><strong>מיקום (מדויק וגס):</strong> כדי להקליט את המסלול שלך בזמן אימון ולהציג את מיקומך במסך ההתחלה כשהאפליקציה פתוחה. ריטם לא מבקשת מיקום ברקע. בזמן הקלטת אימון, שירות חזית שומר עליה פעילה עם התראה גלויה, והוא נעצר כשאתה מסיים.</li>
 <li><strong>פעילות גופנית:</strong> כדי לקרוא את מונה הצעדים של הטלפון.</li>
-<li><strong>התראות:</strong> לכפתורי האימון, לכרטיס הצעדים היומי ולתזכורת הערב לרצף (לא חובה).</li>
+<li><strong>התראות:</strong> לכפתורי האימון, לכרטיס הצעדים היומי ולתזכורת הערב לרצף (לא חובה), ואם אתה משתמש בגיבוי הלילי ל-Google Drive, להודעה ש-Google צריכה שתתחבר שוב.</li>
 <li><strong>שירות חזית (מיקום, בריאות):</strong> כדי שהקלטת האימון וספירת הצעדים לא ייפסקו כשהמסך נכבה.</li>
-<li><strong>הפעלה עם עליית הטלפון:</strong> כדי להחזיר את כרטיס הצעדים ואת קריאת הצעדים אחרי הפעלה מחדש.</li>
-<li><strong>אינטרנט:</strong> כדי לטעון את המפה, את אריחי המפה שמציירים את המסלול המשוער דרך פער במסלול ה-GPS של אימון, ואת אריחי הגובה שמודדים את הטיפוס המצטבר שלו, ולהוריד את קובץ העדכון הקטן (ראה בהמשך).</li>
+<li><strong>הפעלה עם עליית הטלפון:</strong> כדי להחזיר את כרטיס הצעדים ואת קריאת הצעדים אחרי הפעלה מחדש. היא גם מאפשרת לגיבוי הלילי ל-Google Drive, אם הפעלת אותו, לשרוד הפעלה מחדש.</li>
+<li><strong>אינטרנט:</strong> כדי לטעון את המפה, את אריחי המפה שמציירים את המסלול המשוער דרך פער במסלול ה-GPS של אימון, ואת אריחי הגובה שמודדים את הטיפוס המצטבר שלו (ראה בהמשך), כדי להוריד את קובץ העדכון הקטן (ראה בהמשך), ולגיבוי הלא-חובה ל-Google Drive שלך.</li>
 <li><strong>רטט ושמירה על המעבד ער:</strong> לאותות הרטט לבחירה ולכך שההקלטה תמשיך כשהמסך כבוי.</li>
 </ul>
 <p>ריטם לא מבקשת מאנדרואיד לפטור אותה מאופטימיזציית סוללה. מסך הכנת הטלפון רק פותח את הגדרות הסוללה של המערכת, ואתה מחליט מה לשנות שם.</p>
@@ -320,6 +347,18 @@ li { margin: .35rem 0; }
 <p>הדוח לא כולל מיקום או קואורדינטות כלשהן, מסלולים, אימונים, צעדים, פרופיל (גובה, משקל, שנת לידה), שם, דוא״ל, חשבון, מזהה פרסום או מזהי מכשיר. לפני השליחה ריטם גם מסירה מהטקסט כל מה שנראה כמו קואורדינטה, כתובת דוא״ל או כתובת IP, למקרה שהודעת שגיאה הדפיסה אחת מהן. מספר הדוח לא קשור אליך, ולכן המפתח לא יכול לדעת של מי הדוח; כדי שדוח יימחק, כתוב לכתובת הקשר ותאר אותו.</p>
 <p>המפתח קורא דוחות כדי למצוא ולתקן שגיאות ושומר דוח רק כל עוד זה נדרש. Google מטפלת בטופס לפי ההודעה שלה: <a href="https://policies.google.com/privacy" dir="ltr">policies.google.com/privacy</a>. בלי רשת הדוח ממתין בטלפון (3 האחרונים לכל היותר) ונשלח בהפעלה מאוחרת יותר.</p>
 
+<h3>גיבוי ל-Google Drive שלך (רק אם תבחר)</h3>
+<p>במסך «אני» ← «נתונים וגיבוי» אפשר לגבות ל-Google Drive שלך: ידנית («גבה עכשיו») או בכל לילה («כל לילה ב-Wi-Fi»). עד שתלחץ על הכפתור או תפעיל את המתג שום דבר לא קורה; אז Google תבקש ממך להתחבר ולאשר לריטם להשתמש בתיקייה שלה בלבד.</p>
+<ul>
+<li><strong>מה נשלח:</strong> אותו קובץ כמו ב«שמור גיבוי» (כל האימונים עם מסלולי ה-GPS שלהם, הצעדים לפי שעה, ההגדרות והפרופיל), בצורה דחוסה. נשמרים שני הגיבויים האחרונים; ישנים יותר נמחקים.</li>
+<li><strong>לאן:</strong> לתיקיית «נתוני אפליקציה» המוסתרת של ה-Google Drive שלך (ההרשאה <em>drive.appdata</em>). רק ריטם יכולה לקרוא אותה, בטלפון שלך ובאישורך: היא לא מופיעה ברשימת הקבצים של Drive, אפליקציות אחרות לא יכולות לקרוא אותה, והמפתח לא יכול לראות אותה או לפתוח אותה. ריטם לא מבקשת גישה לאף קובץ אחר ב-Drive שלך. הגיבוי עובר ישירות מהטלפון שלך אל ה-Drive שלך ב-HTTPS (<strong dir="ltr">www.googleapis.com</strong>, Google LLC) ונשמר בהתאם לתנאי חשבון Google שלך: <a href="https://policies.google.com/privacy" dir="ltr">policies.google.com/privacy</a>. הוא תופס מקום באחסון של חשבון Google שלך.</li>
+<li><strong>מי יכול לקרוא אותו:</strong> אתה, דרך ריטם, בטלפון שבו התחברת לאותו חשבון, ו-Google כמארחת של ה-Drive שלך. לא המפתח.</li>
+<li><strong>הגיבוי הלילי</strong> נעשה בערך בחצות, רק ב-Wi-Fi (אף פעם לא ברשת סלולרית), רק כשהסוללה לא חלשה ולא בזמן אימון. אם Google תצטרך שתתחבר שוב, ריטם תודיע לך בהתראה ולא תעשה דבר נוסף עד שתתחבר.</li>
+<li><strong>שחזור</strong> מחזיר גיבוי לריטם בטלפון שבו התחברת לאותו חשבון. אחרי התקנה חדשה ריטם מציעה פעם אחת לחפש גיבוי, ומחפשת רק אחרי שהתחברת.</li>
+<li><strong>איך למחוק:</strong> ב-Google Drive (באתר או באפליקציה) פתח «הגדרות», אחר כך «ניהול אפליקציות», מצא את ריטם ובחר «מחיקת נתוני אפליקציה מוסתרים»; או בטל את הגישה של ריטם בחשבון Google שלך («אבטחה», «החיבורים שלך לאפליקציות ושירותים של צד שלישי»). כיבוי הגיבוי הלילי עוצר גיבויים חדשים אבל לא מוחק את אלה שכבר שם.</li>
+</ul>
+<p>בטלפון עצמו ריטם שומרת רק את כתובת הדוא״ל של החשבון שהתחברת אליו (כדי להציג אותה), מתי נעשה הגיבוי האחרון וכמה הוא גדול, ואת מצב המתג. ההתחברות נעשית דרך שירותי Google Play בטלפון שלך; ריטם לא רואה את הסיסמה שלך.</p>
+
 <h3>מה שאתה שולח בעצמך</h3>
 <p>כשאתה משתף כרטיס תוצאה או קובץ GPX, שומר גיבוי, שולח דיווח על תקלה באפליקציה אחרת או פותח קישור (דפי רישיונות, נגן מוזיקה, דף של אפליקציית מוזיקה ב-Play Store), ריטם מעבירה את התוכן למערכת: לתפריט השיתוף, לבורר הקבצים או לדפדפן. הוא הולך לאן שתבחר, וריטם לא רואה אותו אחר כך. קובץ גיבוי מכיל את כל האימונים כולל מסלולי ה-GPS שלהם, את הצעדים לפי שעה, ואת ההגדרות והפרופיל שלך (גובה, משקל, מין ושנת לידה, תשובותיך על הריצה ודופק המנוחה, אם מילאת אותם), לכן שמור אותו במקום שאתה סומך עליו.</p>
 
@@ -328,15 +367,15 @@ li { margin: .35rem 0; }
 
 <h2>מה ריטם לא עושה</h2>
 <ul>
-<li>אין חשבון או כניסה, ואין שרת משלה;</li>
+<li>אין חשבון של ריטם ואין שרת משלה (הכניסה היחידה היא כניסה ל-Google, ורק אם תבחר בגיבוי ל-Google Drive שלך);</li>
 <li>אין פרסומות ואין מזהה פרסום;</li>
-<li>אין שירות ניתוח נתונים או מעקב, אין שירות או ספרייה של צד שלישי לדיווח קריסות (דוחות השגיאה שהסכמת לשלוח נשלחים רק לטופס של המפתח עצמו, כמתואר למעלה), ואין ספרייה של צד שלישי שאוספת מידע (ספריית המפה, מסד הנתונים וספריית הרשת פועלות בתוך האפליקציה ולא שולחות דבר);</li>
-<li>שום מידע לא נמכר ולא מועבר לאיש, מלבד שירות הטפסים שמוביל את דוחות השגיאה שהסכמת לשלוח.</li>
+<li>אין שירות ניתוח נתונים או מעקב, אין שירות או ספרייה של צד שלישי לדיווח קריסות (דוחות השגיאה שהסכמת לשלוח נשלחים רק לטופס של המפתח עצמו, כמתואר למעלה), ואין ספרייה של צד שלישי שאוספת מידע (ספריית המפה, מסד הנתונים וספריית הרשת פועלות בתוך האפליקציה ולא שולחות דבר; הרכיב היחיד של Google הוא ההתחברות של שירותי Google Play, והוא פועל רק כשאתה משתמש בגיבוי ל-Google Drive);</li>
+<li>שום מידע לא נמכר ולא מועבר לאיש, מלבד שירות הטפסים שמוביל את דוחות השגיאה שהסכמת לשלוח, ו-Google Drive שמחזיק את הגיבויים שבחרת לעשות.</li>
 </ul>
-<p>האפליקציה מכבה את הגיבוי האוטומטי לענן של אנדרואיד ואת ההעברה בין מכשירים עבור הנתונים שלה. כדי לעבור לטלפון חדש השתמש בגיבוי שבתוך האפליקציה («אני» ← «נתונים וגיבוי»).</p>
+<p>האפליקציה מכבה את הגיבוי האוטומטי לענן של אנדרואיד ואת ההעברה בין מכשירים עבור הנתונים שלה. כדי לעבור לטלפון חדש השתמש בגיבוי שבתוך האפליקציה («אני» ← «נתונים וגיבוי»): קובץ, או גיבוי ב-Google Drive שלך.</p>
 
 <h2>שמירה ומחיקה של נתונים</h2>
-<p>הנתונים שלך נשארים בטלפון עד שתסיר אותם: מחק אימון בהיסטוריה, או נקה את נתוני האפליקציה או הסר אותה כדי למחוק הכול. למפתח אין עותק של הנתונים שלך, ולכן אין מה למחוק בשרת; היוצא מן הכלל היחיד הוא דוח שגיאה שהסכמת לשלוח, והוא נשמר בגיליון הפרטי של המפתח רק כל עוד נדרש כדי לתקן את הבעיה. קובצי גיבוי או ייצוא ששמרת במקומות אחרים הם באחריותך למחוק.</p>
+<p>הנתונים שלך נשארים בטלפון עד שתסיר אותם: מחק אימון בהיסטוריה, או נקה את נתוני האפליקציה או הסר אותה כדי למחוק הכול. למפתח אין עותק של הנתונים שלך, ולכן אין מה למחוק בשרת; היוצא מן הכלל היחיד הוא דוח שגיאה שהסכמת לשלוח, והוא נשמר בגיליון הפרטי של המפתח רק כל עוד נדרש כדי לתקן את הבעיה. קובצי גיבוי או ייצוא ששמרת במקומות אחרים הם באחריותך למחוק. גיבוי ב-Google Drive שלך נשאר שם עד שתמחק אותו (ראה «גיבוי ל-Google Drive שלך» למעלה); הסרת ריטם מהטלפון לא מוחקת אותו.</p>
 
 <h2>הזכויות שלך</h2>
 <p>מכיוון שהמפתח לא מקבל ולא שומר עליך מידע אישי (דוח שגיאה לא כולל כזה ואינו קשור לאיש), אין בצד שלו מה לעיין בו, לתקן, לייצא או למחוק: הנתונים שלך בשליטתך בטלפון. כדי שדוח שגיאה יימחק, כתוב לכתובת הקשר ותאר אותו. בנוגע לבקשות המפה פנה לשרתים שצוינו למעלה. בכל עניין אחר כתוב לכתובת הקשר.</p>
@@ -345,7 +384,7 @@ li { margin: .35rem 0; }
 <p>ריטם אינה מיועדת לילדים מתחת לגיל 13 ואינה אוספת ביודעין מידע מאף אחד.</p>
 
 <h2>אבטחה</h2>
-<p>הנתונים שלך נשמרים באחסון הפרטי של האפליקציה, שאפליקציות אחרות לא יכולות לקרוא, ובקשות המפה, קובץ העדכון ודוחות השגיאה מוצפנים ב-HTTPS.</p>
+<p>הנתונים שלך נשמרים באחסון הפרטי של האפליקציה, שאפליקציות אחרות לא יכולות לקרוא, ובקשות המפה, קובץ העדכון, דוחות השגיאה והגיבויים שנשלחים ל-Google Drive שלך מוצפנים ב-HTTPS.</p>
 
 <h2>הערה בנושא בריאות</h2>
 <p>ריטם היא אפליקציית כושר ולא מכשיר רפואי. היא לא מאבחנת, לא מטפלת, לא מרפאה ולא מונעת שום מצב רפואי. קלוריות, מרחק שמוערך לפי צעדים וזיהוי ריצה והליכה הם הערכות. התייעץ עם רופא לפני שאתה מתחיל תוכנית אימונים חדשה.</p>
