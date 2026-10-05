@@ -46,7 +46,7 @@ li { margin: .35rem 0; }
 <li>Ritm has no accounts and no server of its own. The developer receives no data from the app, except error reports, and only if you agree (see “Error reports” below).</li>
 <li>Your location, steps, weight, height, year of birth, workouts and settings stay on your phone.</li>
 <li>No ads, no analytics, no tracking, and nothing is sold.</li>
-<li>Only the map, the measuring of a workout's elevation gain and, if you agree, the error reports use the internet. The map and the elevation gain load map data from OpenFreeMap and terrain data from Amazon Web Services, and those hosts can see your IP address and which part of the map you are looking at, or roughly where your workout was.</li>
+<li>Only the map, the measuring of a workout's elevation gain, the likely path through a gap in its GPS track and, if you agree, the error reports use the internet. The map and the gap path load map data from OpenFreeMap, and the elevation gain terrain data from Amazon Web Services, and those hosts can see your IP address and which part of the map you are looking at, or roughly where your workout was.</li>
 <li>Error reports are off until you say yes. They hold the phone model, the versions, the error text and the app's activity log, never your location, your name or your e-mail, and they go to a private Google Form of the developer.</li>
 </ul>
 
@@ -71,7 +71,7 @@ li { margin: .35rem 0; }
 <li><strong>Notifications:</strong> the workout controls, the all-day steps card and the optional evening streak reminder.</li>
 <li><strong>Foreground service (location, health):</strong> so that a workout recording and the step counter are not cut off when the screen turns off.</li>
 <li><strong>Run at startup:</strong> to bring back the steps card and the step reading after the phone restarts.</li>
-<li><strong>Internet:</strong> to load the map and the elevation tiles that measure the elevation gain of a workout (see below).</li>
+<li><strong>Internet:</strong> to load the map, the map tiles that draw the likely path through a gap in the GPS track of a workout, and the elevation tiles that measure its elevation gain (see below).</li>
 <li><strong>Vibration and keeping the processor awake:</strong> for the optional vibration cues and so that a recording continues with the screen off.</li>
 </ul>
 <p>Ritm does not ask Android to exempt it from battery optimisation. The phone setup screen only opens the battery settings of the system, and you decide what to change there.</p>
@@ -85,8 +85,9 @@ li { margin: .35rem 0; }
 </ul>
 <p>Every request contains the address of a map tile (zoom level and position: a square roughly 1 to 2.5 km on a side), the IP address of your phone, and the name and version of the app (user agent “app.ritm/…”). Because the map follows your position, the host can tell roughly in which area you are, but not your exact position. Ritm sends no GPS coordinates, no account, no device identifiers and no advertising ID. The map data is cached on your phone.</p>
 <p>On a phone without a barometer, Ritm also downloads the elevation tiles of the area of a route from the same Terrain Tiles service, after a workout or when you open an earlier one in History, to measure its elevation gain on the terrain map; as with the map, each such request carries only the tile address, your IP address and the app's user agent, and no coordinates.</p>
+<p>After a workout whose GPS track has a gap (a tunnel, thick trees, the app closed by the phone), or when you open such an earlier workout in History, Ritm downloads the OpenFreeMap map tiles of that area to draw the likely path through the gap as a dashed line; as with the map, each such request carries only the tile address, your IP address and the app's user agent, and no coordinates.</p>
 <p>OpenFreeMap states in its privacy policy that it does not store IP addresses in its access logs (it may log them for up to 30 days if it detects abuse), does not use cookies or tracking, and deletes its logs after 7 days: <a href="https://openfreemap.org/privacy/">openfreemap.org/privacy</a>. Amazon Web Services handles requests under its own notice: <a href="https://aws.amazon.com/privacy/">aws.amazon.com/privacy</a>. Ritm has no control over these services.</p>
-<p>Recording a workout, counting steps and everything else work without internet; only the map and the measuring of elevation gain need it.</p>
+<p>Recording a workout, counting steps and everything else work without internet; only the map, the likely path through a gap in the GPS track and the measuring of elevation gain need it.</p>
 
 <h3>Error reports (only if you agree)</h3>
 <p>The first time there is something to send (the app crashed, or you open “Report a problem”), Ritm asks whether it may send error reports to the developer. Your answer is kept in Me, Data &amp; backup, where you can change it at any time. Until you say yes, nothing is sent by itself; a button you press for one report (“Send to the developer”) sends that one report whatever your choice.</p>
@@ -148,7 +149,7 @@ li { margin: .35rem 0; }
 <li>У «Ритма» нет аккаунтов и нет собственного сервера. Разработчик не получает от приложения никаких данных, кроме отчётов об ошибках, и только если вы согласитесь (см. «Отчёты об ошибках» ниже).</li>
 <li>Геопозиция, шаги, вес, рост, год рождения, тренировки и настройки остаются на вашем телефоне.</li>
 <li>Нет рекламы, аналитики и слежки; ничего не продаётся.</li>
-<li>В интернет ходят только карта, измерение набора высоты за тренировку и, если вы согласитесь, отчёты об ошибках. Карта и набор высоты загружают данные карты с OpenFreeMap и данные рельефа с Amazon Web Services, и эти серверы видят ваш IP-адрес и то, какую часть карты вы смотрите, или примерно где была тренировка.</li>
+<li>В интернет ходят только карта, измерение набора высоты за тренировку, предполагаемый путь через провал в GPS-треке и, если вы согласитесь, отчёты об ошибках. Карта и путь через провал загружают данные карты с OpenFreeMap, а набор высоты — данные рельефа с Amazon Web Services, и эти серверы видят ваш IP-адрес и то, какую часть карты вы смотрите, или примерно где была тренировка.</li>
 <li>Отчёты об ошибках выключены, пока вы не скажете «да». В них модель телефона, версии, текст ошибки и журнал работы приложения, но не геопозиция, не имя и не e-mail; они уходят в закрытую форму Google разработчика.</li>
 </ul>
 
@@ -173,7 +174,7 @@ li { margin: .35rem 0; }
 <li><strong>Уведомления:</strong> управление тренировкой, карточка шагов за день и вечернее напоминание о серии (по желанию).</li>
 <li><strong>Служба переднего плана (геопозиция, здоровье):</strong> чтобы запись тренировки и счёт шагов не прерывались, когда экран гаснет.</li>
 <li><strong>Запуск при включении телефона:</strong> чтобы вернуть карточку шагов и считывание шагов после перезагрузки.</li>
-<li><strong>Интернет:</strong> чтобы загружать карту и плитки высот для измерения набора высоты за тренировку (см. ниже).</li>
+<li><strong>Интернет:</strong> чтобы загружать карту, плитки карты для предполагаемого пути через провал в GPS-треке тренировки и плитки высот для измерения набора высоты (см. ниже).</li>
 <li><strong>Вибрация и удержание процессора:</strong> для вибро-сигналов по желанию и чтобы запись шла с выключенным экраном.</li>
 </ul>
 <p>«Ритм» не просит Android исключить его из оптимизации батареи. Экран подготовки телефона лишь открывает системные настройки батареи, и что там менять — решаете вы.</p>
@@ -187,8 +188,9 @@ li { margin: .35rem 0; }
 </ul>
 <p>Каждый запрос содержит адрес плитки карты (уровень масштаба и положение: квадрат со стороной примерно от 1 до 2,5 км), IP-адрес телефона, а также название и версию приложения (user agent «app.ritm/…»). Поскольку карта следует за вашим положением, сервер может примерно понять, в каком районе вы находитесь, но не ваше точное место. «Ритм» не отправляет GPS-координаты, аккаунт, идентификаторы устройства и рекламный идентификатор. Данные карты кэшируются на телефоне.</p>
 <p>На телефоне без барометра «Ритм» также загружает плитки высот района маршрута с того же сервиса Terrain Tiles — после тренировки или когда вы открываете в «Истории» более раннюю, — чтобы измерить набор высоты по карте рельефа; как и у карты, каждый такой запрос содержит только адрес плитки, IP-адрес и user agent приложения, без координат.</p>
+<p>После тренировки, в GPS-треке которой есть провал (тоннель, густые деревья, приложение закрыто телефоном), или когда вы открываете в «Истории» такую более раннюю тренировку, «Ритм» загружает плитки карты OpenFreeMap этого района, чтобы нарисовать пунктиром предполагаемый путь через провал; как и у карты, каждый такой запрос содержит только адрес плитки, IP-адрес и user agent приложения, без координат.</p>
 <p>OpenFreeMap заявляет в своей политике конфиденциальности, что не хранит IP-адреса в журналах доступа (при подозрении на злоупотребление может вести их до 30 дней), не использует cookies и слежку, а журналы удаляет через 7 дней: <a href="https://openfreemap.org/privacy/">openfreemap.org/privacy</a>. Amazon Web Services обрабатывает запросы по собственному уведомлению: <a href="https://aws.amazon.com/privacy/">aws.amazon.com/privacy</a>. «Ритм» не управляет этими сервисами.</p>
-<p>Запись тренировки, счёт шагов и всё остальное работают без интернета; он нужен только карте и измерению набора высоты.</p>
+<p>Запись тренировки, счёт шагов и всё остальное работают без интернета; он нужен только карте, предполагаемому пути через провал в треке и измерению набора высоты.</p>
 
 <h3>Отчёты об ошибках (только если вы согласны)</h3>
 <p>В первый раз, когда есть что отправить (приложение вылетело или вы открыли «Сообщить об ошибке»), «Ритм» спрашивает, можно ли отправлять отчёты об ошибках разработчику. Ответ хранится в «Я» → «Данные и копия», там его можно изменить в любой момент. Пока вы не сказали «да», сами по себе отчёты не уходят; кнопка, которую вы нажимаете для одного отчёта («Отправить разработчику»), отправляет именно этот отчёт независимо от вашего выбора.</p>
@@ -250,7 +252,7 @@ li { margin: .35rem 0; }
 <li>לריטם אין חשבונות ואין שרת משלה. המפתח לא מקבל מהאפליקציה שום מידע, מלבד דוחות שגיאה, ורק אם תסכים (ראה «דוחות שגיאה» בהמשך).</li>
 <li>המיקום, הצעדים, המשקל, הגובה, שנת הלידה, האימונים וההגדרות שלך נשארים בטלפון שלך.</li>
 <li>בלי פרסומות, בלי ניתוח נתונים ובלי מעקב; שום דבר לא נמכר.</li>
-<li>רק המפה, מדידת הטיפוס המצטבר של אימון, ואם תסכים גם דוחות שגיאה, משתמשים באינטרנט. המפה ומדידת הטיפוס טוענות נתוני מפה מ-OpenFreeMap ונתוני תבליט מ-Amazon Web Services, והשרתים האלה רואים את כתובת ה-IP שלך ואת החלק במפה שאתה מסתכל עליו, או בערך היכן היה האימון.</li>
+<li>רק המפה, מדידת הטיפוס המצטבר של אימון, המסלול המשוער דרך פער במסלול ה-GPS שלו, ואם תסכים גם דוחות שגיאה, משתמשים באינטרנט. המפה והמסלול המשוער טוענים נתוני מפה מ-OpenFreeMap, ומדידת הטיפוס נתוני תבליט מ-Amazon Web Services, והשרתים האלה רואים את כתובת ה-IP שלך ואת החלק במפה שאתה מסתכל עליו, או בערך היכן היה האימון.</li>
 <li>דוחות שגיאה כבויים עד שתגיד «כן». הם כוללים את דגם הטלפון, הגרסאות, טקסט השגיאה ויומן הפעילות של האפליקציה, אבל לא מיקום, שם או דוא״ל, והם נשלחים לטופס Google פרטי של המפתח.</li>
 </ul>
 
@@ -275,7 +277,7 @@ li { margin: .35rem 0; }
 <li><strong>התראות:</strong> לכפתורי האימון, לכרטיס הצעדים היומי ולתזכורת הערב לרצף (לא חובה).</li>
 <li><strong>שירות חזית (מיקום, בריאות):</strong> כדי שהקלטת האימון וספירת הצעדים לא ייפסקו כשהמסך נכבה.</li>
 <li><strong>הפעלה עם עליית הטלפון:</strong> כדי להחזיר את כרטיס הצעדים ואת קריאת הצעדים אחרי הפעלה מחדש.</li>
-<li><strong>אינטרנט:</strong> כדי לטעון את המפה ואת אריחי הגובה שמודדים את הטיפוס המצטבר של אימון (ראה בהמשך).</li>
+<li><strong>אינטרנט:</strong> כדי לטעון את המפה, את אריחי המפה שמציירים את המסלול המשוער דרך פער במסלול ה-GPS של אימון, ואת אריחי הגובה שמודדים את הטיפוס המצטבר שלו (ראה בהמשך).</li>
 <li><strong>רטט ושמירה על המעבד ער:</strong> לאותות הרטט לבחירה ולכך שההקלטה תמשיך כשהמסך כבוי.</li>
 </ul>
 <p>ריטם לא מבקשת מאנדרואיד לפטור אותה מאופטימיזציית סוללה. מסך הכנת הטלפון רק פותח את הגדרות הסוללה של המערכת, ואתה מחליט מה לשנות שם.</p>
@@ -289,8 +291,9 @@ li { margin: .35rem 0; }
 </ul>
 <p>כל בקשה מכילה את כתובת אריח המפה (רמת זום ומיקום: ריבוע שאורך צלעו כ-1 עד 2.5 ק״מ), את כתובת ה-IP של הטלפון, ואת שם האפליקציה וגרסתה (user agent "app.ritm/…"). מאחר שהמפה עוקבת אחרי מיקומך, השרת יכול להבין בערך באיזה אזור אתה נמצא, אך לא את מיקומך המדויק. ריטם לא שולחת קואורדינטות GPS, חשבון, מזהי מכשיר או מזהה פרסום. נתוני המפה נשמרים בזיכרון המטמון של הטלפון.</p>
 <p>בטלפון בלי ברומטר ריטם מורידה גם אריחי גובה של אזור המסלול מאותו שירות Terrain Tiles, אחרי אימון או כשאתה פותח בהיסטוריה אימון קודם, כדי למדוד את הטיפוס המצטבר על מפת התבליט; כמו במפה, כל בקשה כזו מכילה רק את כתובת האריח, את כתובת ה-IP ואת ה-user agent של האפליקציה, בלי קואורדינטות.</p>
+<p>אחרי אימון שבמסלול ה-GPS שלו יש פער (מנהרה, עצים צפופים, האפליקציה נסגרה על ידי הטלפון), או כשאתה פותח בהיסטוריה אימון קודם כזה, ריטם מורידה את אריחי המפה של OpenFreeMap באזור הזה כדי לצייר את המסלול המשוער דרך הפער כקו מקווקו; כמו במפה, כל בקשה כזו מכילה רק את כתובת האריח, את כתובת ה-IP ואת ה-user agent של האפליקציה, בלי קואורדינטות.</p>
 <p>OpenFreeMap מצהירה במדיניות הפרטיות שלה שהיא לא שומרת כתובות IP ביומני הגישה (ובמקרה של חשד לניצול לרעה היא עשויה לתעד אותן עד 30 יום), לא משתמשת בעוגיות ובמעקב, ומוחקת את היומנים אחרי 7 ימים: <a href="https://openfreemap.org/privacy/" dir="ltr">openfreemap.org/privacy</a>. Amazon Web Services מטפלת בבקשות לפי ההודעה שלה: <a href="https://aws.amazon.com/privacy/" dir="ltr">aws.amazon.com/privacy</a>. לריטם אין שליטה בשירותים האלה.</p>
-<p>הקלטת אימון, ספירת צעדים וכל השאר עובדים בלי אינטרנט; רק המפה ומדידת הטיפוס המצטבר זקוקות לו.</p>
+<p>הקלטת אימון, ספירת צעדים וכל השאר עובדים בלי אינטרנט; רק המפה, המסלול המשוער דרך פער ומדידת הטיפוס המצטבר זקוקים לו.</p>
 
 <h3>דוחות שגיאה (רק אם תסכים)</h3>
 <p>בפעם הראשונה שיש מה לשלוח (האפליקציה קרסה, או שפתחת «דיווח על בעיה»), ריטם שואלת אם מותר לה לשלוח דוחות שגיאה למפתח. התשובה נשמרת ב«אני» ← «נתונים וגיבוי», ושם אפשר לשנות אותה בכל עת. עד שתגיד «כן» שום דבר לא נשלח מעצמו; כפתור שאתה לוחץ עליו עבור דוח אחד («שליחה למפתח») שולח את הדוח הזה בלבד, בלי קשר לבחירה שלך.</p>
