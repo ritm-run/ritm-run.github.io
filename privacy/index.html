@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ritm — Privacy Policy · Политика конфиденциальности · מדיניות פרטיות</title>
+<meta name="description" content="Privacy policy of Ritm, a run and walk tracker for Android. Политика конфиденциальности. מדיניות פרטיות.">
+<!--
+  Ritm privacy policy: ONE page in three languages (#en, #ru, #he). Plain HTML, no scripts, no external files, nothing to track a reader.
+  Host it as index.html (docs/GOOGLE-PLAY.txt, section "Hosting"). Published as privacy/index.html of github.com/ritm-run/ritm-run.github.io (GitHub Pages: https://ritm-run.github.io/privacy/); the contact is that repository's issues page until a support e-mail exists.
+  The app opens this page at the language it speaks: the address is the string play_privacy_url in app/src/main/res/values/strings_play.xml.
+  If the app's behaviour changes (a new server, a new SDK, a new permission), change the text AND the date, and re-check the Data safety form.
+-->
+<style>
+:root { color-scheme: light dark; --bg: #ffffff; --fg: #1b2430; --dim: #566174; --line: #d9dee6; --link: #0b5bd3; }
+@media (prefers-color-scheme: dark) { :root { --bg: #10151c; --fg: #e8edf3; --dim: #9aa6b6; --line: #2a3340; --link: #7db4ff; } }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 0 1rem 4rem; }
+nav { display: flex; gap: 1.25rem; flex-wrap: wrap; padding: .75rem 0; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); }
+a { color: var(--link); }
+h1 { font-size: 1.6rem; line-height: 1.25; margin: 1.5rem 0 .25rem; }
+h2 { font-size: 1.15rem; margin: 1.8rem 0 .4rem; }
+h3 { font-size: 1rem; margin: 1.2rem 0 .3rem; }
+.meta { color: var(--dim); margin-top: 0; }
+section { padding: .5rem 0 2rem; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: 0; }
+li { margin: .35rem 0; }
+</style>
+</head>
+<body>
+<main>
+<nav aria-label="Language / Язык / שפה">
+  <a href="#en">English</a>
+  <a href="#ru" lang="ru">Русский</a>
+  <a href="#he" lang="he">עברית</a>
+</nav>
+
+<!-- ═══════════════════════════ ENGLISH ═══════════════════════════ -->
+<section id="en" lang="en">
+<h1>Ritm — Privacy Policy</h1>
+<p class="meta">Last updated: 5 October 2026. Applies to the Android app Ritm (app.ritm).</p>
+
+<h2>In short</h2>
+<ul>
+<li>Ritm has no accounts and no server of its own. The developer receives no data from the app, except error reports, and only if you agree (see “Error reports” below).</li>
+<li>Your location, steps, weight, height, year of birth, workouts and settings stay on your phone.</li>
+<li>No ads, no analytics, no tracking, and nothing is sold.</li>
+<li>Only the map, the measuring of a workout's elevation gain and, if you agree, the error reports use the internet. The map and the elevation gain load map data from OpenFreeMap and terrain data from Amazon Web Services, and those hosts can see your IP address and which part of the map you are looking at, or roughly where your workout was.</li>
+<li>Error reports are off until you say yes. They hold the phone model, the versions, the error text and the app's activity log, never your location, your name or your e-mail, and they go to a private Google Form of the developer.</li>
+</ul>
+
+<h2>Who is responsible</h2>
+<p>Ritm is made and published by an individual developer, Peter. For any privacy question, ask at <a href="https://github.com/ritm-run/ritm-run.github.io/issues">github.com/ritm-run/ritm-run.github.io/issues</a>.</p>
+
+<h2>What Ritm keeps on your phone</h2>
+<p>All of this lives in the private storage of the app on your phone. It is removed when you uninstall Ritm or clear its storage, and the app does not copy it anywhere.</p>
+<ul>
+<li><strong>Workouts:</strong> the GPS route (latitude, longitude, altitude, speed, time and accuracy of every point), distance, time, pace, steps, estimated calories, kilometre splits and the results of the Hare and Wolf game modes.</li>
+<li><strong>Steps:</strong> your step count for every hour, read from the step counter of the phone.</li>
+<li><strong>Profile (optional):</strong> height, weight, sex and year of birth, and your answers to the running questionnaire (including your resting pulse). Ritm uses them on the phone to estimate calories, your easy pace and interval plans. You can leave them empty and change them at any time.</li>
+<li><strong>Settings and progress:</strong> step goal, streak, trophies, theme, language, voice and map options and, if you choose one, a background picture (picked with the system photo picker and copied into the app).</li>
+<li><strong>A crash note:</strong> if the app crashes, a short text file with the error, the app version, the phone model and the Android version is saved on the phone. If you agreed to error reports, it is sent at the next start and deleted; if not, Ritm shows it to you, and it leaves the phone only if you tap Send for it (see “Error reports” below) or choose to send it with an app of your own.</li>
+<li><strong>The activity log and the reports waiting:</strong> a file of the last 300 short lines about what the app did (the time in UTC and words such as “workout start” or “gps WEAK”: never a place or a figure of a workout), the reports that could not be sent for lack of a network (at most 3), and your choice about error reports.</li>
+</ul>
+
+<h2>Permissions and what they are for</h2>
+<ul>
+<li><strong>Location (precise and approximate):</strong> to record your route during a workout and to show your position on the Start screen while the app is open. Ritm does not ask for background location. While a workout is recording, a foreground service keeps it running with a visible notification, and it stops when you finish.</li>
+<li><strong>Physical activity:</strong> to read the step counter of the phone.</li>
+<li><strong>Notifications:</strong> the workout controls, the all-day steps card and the optional evening streak reminder.</li>
+<li><strong>Foreground service (location, health):</strong> so that a workout recording and the step counter are not cut off when the screen turns off.</li>
+<li><strong>Run at startup:</strong> to bring back the steps card and the step reading after the phone restarts.</li>
+<li><strong>Internet:</strong> to load the map and the elevation tiles that measure the elevation gain of a workout (see below).</li>
+<li><strong>Vibration and keeping the processor awake:</strong> for the optional vibration cues and so that a recording continues with the screen off.</li>
+</ul>
+<p>Ritm does not ask Android to exempt it from battery optimisation. The phone setup screen only opens the battery settings of the system, and you decide what to change there.</p>
+
+<h2>What leaves your phone</h2>
+<h3>The map</h3>
+<p>While a map is on screen, Ritm requests map data over HTTPS from:</p>
+<ul>
+<li><strong>tiles.openfreemap.org</strong> (OpenFreeMap): map tiles and the fonts for the map labels;</li>
+<li><strong>s3.amazonaws.com</strong> (Amazon Web Services, the open “Terrain Tiles” data set): elevation tiles for the shaded relief.</li>
+</ul>
+<p>Every request contains the address of a map tile (zoom level and position: a square roughly 1 to 2.5 km on a side), the IP address of your phone, and the name and version of the app (user agent “app.ritm/…”). Because the map follows your position, the host can tell roughly in which area you are, but not your exact position. Ritm sends no GPS coordinates, no account, no device identifiers and no advertising ID. The map data is cached on your phone.</p>
+<p>On a phone without a barometer, Ritm also downloads the elevation tiles of the area of a route from the same Terrain Tiles service, after a workout or when you open an earlier one in History, to measure its elevation gain on the terrain map; as with the map, each such request carries only the tile address, your IP address and the app's user agent, and no coordinates.</p>
+<p>OpenFreeMap states in its privacy policy that it does not store IP addresses in its access logs (it may log them for up to 30 days if it detects abuse), does not use cookies or tracking, and deletes its logs after 7 days: <a href="https://openfreemap.org/privacy/">openfreemap.org/privacy</a>. Amazon Web Services handles requests under its own notice: <a href="https://aws.amazon.com/privacy/">aws.amazon.com/privacy</a>. Ritm has no control over these services.</p>
+<p>Recording a workout, counting steps and everything else work without internet; only the map and the measuring of elevation gain need it.</p>
+
+<h3>Error reports (only if you agree)</h3>
+<p>The first time there is something to send (the app crashed, or you open “Report a problem”), Ritm asks whether it may send error reports to the developer. Your answer is kept in Me, Data &amp; backup, where you can change it at any time. Until you say yes, nothing is sent by itself; a button you press for one report (“Send to the developer”) sends that one report whatever your choice.</p>
+<p>A report goes over HTTPS to a Google Form of the developer (<strong>docs.google.com</strong>, Google Forms, Google LLC), and the answers of the form land in a private spreadsheet that only the developer opens. A report contains exactly this:</p>
+<ul>
+<li>its type (crash or problem report; “test” is added in test builds);</li>
+<li>the version of Ritm and of Android, the maker and model of the phone and the name of its system build (for example the HyperOS version);</li>
+<li>whether this is the official build of Ritm or a modified one, which app installed it (for example Google Play) and the first 8 and last 4 digits of the fingerprint of the certificate it is signed with;</li>
+<li>the text of the error, or the words you typed;</li>
+<li>a random report number made for that one report, and the time (UTC);</li>
+<li>the activity log of the app (see above), the last 300 lines at most;</li>
+<li>how the last five runs of the app ended, as Android records it (for example closed by the user, killed for memory, a crash), with the description Android gives;</li>
+<li>three settings: the language of the app, whether the voice prompts are on, and the map style.</li>
+</ul>
+<p>A report does not contain your location or any coordinates, routes, workouts, steps, profile (height, weight, year of birth), name, e-mail, account, advertising ID or device identifiers. Before sending, Ritm also removes from the text anything that looks like a coordinate, an e-mail address or an IP address, in case an error message printed one. The report number is not linked to you, so the developer cannot tell whose report it is; to have a report removed, write to the contact address and describe it.</p>
+<p>The developer reads reports to find and fix errors and keeps one only as long as that takes. Google handles the form under its own notice: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Without a network a report waits on the phone (the last 3 at most) and is sent at a later start.</p>
+
+<h3>Things you send yourself</h3>
+<p>When you share a result card or a GPX file, save a backup, send a problem report through another app or open a link (licence pages, a music player, the Play Store page of a music app), Ritm hands the content to the system: the share sheet, the file picker or the browser. It goes where you choose, and Ritm does not see it afterwards. A backup file contains all your workouts including their GPS routes, your steps by hour, and your settings and profile (height, weight, sex and year of birth, your answers about your running and your resting pulse, if you filled them in), so keep it somewhere you trust.</p>
+
+<h3>Voice and music</h3>
+<p>Voice prompts are spoken by the text-to-speech engine installed on your phone, using offline voices. The words are composed on the phone and Ritm does not send them anywhere. For music, Ritm only sends play, pause and next key presses to the player that is already running; it does not read what is playing and does not play music itself.</p>
+
+<h2>What Ritm does not do</h2>
+<ul>
+<li>no account or sign-in, and no server of its own;</li>
+<li>no advertising and no advertising ID;</li>
+<li>no analytics or tracking service, no crash-reporting service or library of a third party (the error reports you agree to send go only to the developer's own form, described above), and no third-party library that collects data (the map library, the database and the network library run inside the app and send nothing home);</li>
+<li>no selling of data, and no sharing of it with anyone except the form service that carries the error reports you agree to send.</li>
+</ul>
+<p>The app switches off the automatic cloud backup of Android and the device-to-device transfer for its data. To move to a new phone use the backup inside the app (Me, Data &amp; backup).</p>
+
+<h2>Keeping and deleting data</h2>
+<p>Your data stays on your phone until you remove it: delete a workout in History, or clear the storage of the app or uninstall it to remove everything. The developer holds no copy of your data, so there is nothing to delete on a server; the one exception is an error report you agreed to send, which is kept in the developer's private spreadsheet only as long as it takes to fix the problem. Backup or export files that you saved elsewhere are yours to delete.</p>
+
+<h2>Your rights</h2>
+<p>Because the developer does not receive or store personal data about you (an error report holds none and is linked to no one), there is nothing to access, correct, export or erase on the developer's side: your data is under your control on your phone. To have an error report removed, write to the contact address and describe it. For anything about map requests contact the hosts named above. For everything else write to the contact address.</p>
+
+<h2>Children</h2>
+<p>Ritm is not directed at children under 13 and does not knowingly collect data from anyone.</p>
+
+<h2>Security</h2>
+<p>Your data is kept in the private storage of the app, which other apps cannot read, and map requests and error reports are encrypted with HTTPS.</p>
+
+<h2>Health note</h2>
+<p>Ritm is a fitness app, not a medical device. It does not diagnose, treat, cure or prevent any medical condition. Calories, distance estimated from steps and the detection of running and walking are estimates. Consult a doctor before you begin a new exercise programme.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the new version will be posted on this page with a new date.</p>
+</section>
+
+<!-- ═══════════════════════════ РУССКИЙ ═══════════════════════════ -->
+<section id="ru" lang="ru">
+<h1>«Ритм» — Политика конфиденциальности</h1>
+<p class="meta">Обновлено: 5 октября 2026. Относится к приложению «Ритм» (app.ritm) для Android.</p>
+
+<h2>Коротко</h2>
+<ul>
+<li>У «Ритма» нет аккаунтов и нет собственного сервера. Разработчик не получает от приложения никаких данных, кроме отчётов об ошибках, и только если вы согласитесь (см. «Отчёты об ошибках» ниже).</li>
+<li>Геопозиция, шаги, вес, рост, год рождения, тренировки и настройки остаются на вашем телефоне.</li>
+<li>Нет рекламы, аналитики и слежки; ничего не продаётся.</li>
+<li>В интернет ходят только карта, измерение набора высоты за тренировку и, если вы согласитесь, отчёты об ошибках. Карта и набор высоты загружают данные карты с OpenFreeMap и данные рельефа с Amazon Web Services, и эти серверы видят ваш IP-адрес и то, какую часть карты вы смотрите, или примерно где была тренировка.</li>
+<li>Отчёты об ошибках выключены, пока вы не скажете «да». В них модель телефона, версии, текст ошибки и журнал работы приложения, но не геопозиция, не имя и не e-mail; они уходят в закрытую форму Google разработчика.</li>
+</ul>
+
+<h2>Кто отвечает</h2>
+<p>«Ритм» создан и опубликован индивидуальным разработчиком Peter. С любыми вопросами о конфиденциальности обращайтесь на <a href="https://github.com/ritm-run/ritm-run.github.io/issues">github.com/ritm-run/ritm-run.github.io/issues</a>.</p>
+
+<h2>Что «Ритм» хранит на вашем телефоне</h2>
+<p>Всё перечисленное лежит в закрытом хранилище приложения на вашем телефоне. Оно удаляется, когда вы удаляете «Ритм» или очищаете его данные, и приложение никуда его не копирует.</p>
+<ul>
+<li><strong>Тренировки:</strong> GPS-маршрут (широта, долгота, высота, скорость, время и точность каждой точки), дистанция, время, темп, шаги, расчётные калории, отсечки по километрам и результаты игровых режимов «Заяц» и «Волк».</li>
+<li><strong>Шаги:</strong> число шагов по часам, считанное со счётчика шагов телефона.</li>
+<li><strong>Профиль (по желанию):</strong> рост, вес, пол и год рождения, а также ответы анкеты бега (в том числе пульс в покое). «Ритм» использует их на телефоне, чтобы оценить калории, ваш лёгкий темп и интервальные планы. Их можно не заполнять и менять в любой момент.</li>
+<li><strong>Настройки и прогресс:</strong> цель по шагам, серия, трофеи, тема, язык, параметры голоса и карты и, если вы выберете, картинка на фон (выбирается системным выбором фото и копируется в приложение).</li>
+<li><strong>Запись о сбое:</strong> если приложение вылетело, на телефоне сохраняется короткий текстовый файл с ошибкой, версией приложения, моделью телефона и версией Android. Если вы согласились на отчёты об ошибках, при следующем запуске он отправляется и удаляется; если нет, «Ритм» показывает его вам, и он покидает телефон, только если вы нажмёте «Отправить» для этого отчёта (см. «Отчёты об ошибках» ниже) или выберете для отправки своё приложение.</li>
+<li><strong>Журнал работы и отчёты в очереди:</strong> файл из последних 300 коротких строк о том, что делало приложение (время по UTC и слова вроде «workout start» или «gps WEAK»: никогда не место и не цифры тренировки), отчёты, которые не удалось отправить из-за отсутствия сети (не больше 3), и ваш выбор об отчётах об ошибках.</li>
+</ul>
+
+<h2>Разрешения и зачем они нужны</h2>
+<ul>
+<li><strong>Геопозиция (точная и приблизительная):</strong> чтобы записать маршрут во время тренировки и показать ваше место на экране «Старт», пока приложение открыто. «Ритм» не запрашивает геопозицию в фоне. Пока идёт запись тренировки, её поддерживает служба переднего плана с заметным уведомлением; когда вы завершаете тренировку, служба останавливается.</li>
+<li><strong>Физическая активность:</strong> чтобы считывать счётчик шагов телефона.</li>
+<li><strong>Уведомления:</strong> управление тренировкой, карточка шагов за день и вечернее напоминание о серии (по желанию).</li>
+<li><strong>Служба переднего плана (геопозиция, здоровье):</strong> чтобы запись тренировки и счёт шагов не прерывались, когда экран гаснет.</li>
+<li><strong>Запуск при включении телефона:</strong> чтобы вернуть карточку шагов и считывание шагов после перезагрузки.</li>
+<li><strong>Интернет:</strong> чтобы загружать карту и плитки высот для измерения набора высоты за тренировку (см. ниже).</li>
+<li><strong>Вибрация и удержание процессора:</strong> для вибро-сигналов по желанию и чтобы запись шла с выключенным экраном.</li>
+</ul>
+<p>«Ритм» не просит Android исключить его из оптимизации батареи. Экран подготовки телефона лишь открывает системные настройки батареи, и что там менять — решаете вы.</p>
+
+<h2>Что покидает ваш телефон</h2>
+<h3>Карта</h3>
+<p>Пока на экране карта, «Ритм» запрашивает данные карты по HTTPS у:</p>
+<ul>
+<li><strong>tiles.openfreemap.org</strong> (OpenFreeMap): плитки карты и шрифты подписей;</li>
+<li><strong>s3.amazonaws.com</strong> (Amazon Web Services, открытый набор «Terrain Tiles»): плитки высот для теневого рельефа.</li>
+</ul>
+<p>Каждый запрос содержит адрес плитки карты (уровень масштаба и положение: квадрат со стороной примерно от 1 до 2,5 км), IP-адрес телефона, а также название и версию приложения (user agent «app.ritm/…»). Поскольку карта следует за вашим положением, сервер может примерно понять, в каком районе вы находитесь, но не ваше точное место. «Ритм» не отправляет GPS-координаты, аккаунт, идентификаторы устройства и рекламный идентификатор. Данные карты кэшируются на телефоне.</p>
+<p>На телефоне без барометра «Ритм» также загружает плитки высот района маршрута с того же сервиса Terrain Tiles — после тренировки или когда вы открываете в «Истории» более раннюю, — чтобы измерить набор высоты по карте рельефа; как и у карты, каждый такой запрос содержит только адрес плитки, IP-адрес и user agent приложения, без координат.</p>
+<p>OpenFreeMap заявляет в своей политике конфиденциальности, что не хранит IP-адреса в журналах доступа (при подозрении на злоупотребление может вести их до 30 дней), не использует cookies и слежку, а журналы удаляет через 7 дней: <a href="https://openfreemap.org/privacy/">openfreemap.org/privacy</a>. Amazon Web Services обрабатывает запросы по собственному уведомлению: <a href="https://aws.amazon.com/privacy/">aws.amazon.com/privacy</a>. «Ритм» не управляет этими сервисами.</p>
+<p>Запись тренировки, счёт шагов и всё остальное работают без интернета; он нужен только карте и измерению набора высоты.</p>
+
+<h3>Отчёты об ошибках (только если вы согласны)</h3>
+<p>В первый раз, когда есть что отправить (приложение вылетело или вы открыли «Сообщить об ошибке»), «Ритм» спрашивает, можно ли отправлять отчёты об ошибках разработчику. Ответ хранится в «Я» → «Данные и копия», там его можно изменить в любой момент. Пока вы не сказали «да», сами по себе отчёты не уходят; кнопка, которую вы нажимаете для одного отчёта («Отправить разработчику»), отправляет именно этот отчёт независимо от вашего выбора.</p>
+<p>Отчёт уходит по HTTPS в форму Google разработчика (<strong>docs.google.com</strong>, Google Forms, Google LLC), а ответы формы попадают в закрытую таблицу, которую открывает только разработчик. В отчёте ровно это:</p>
+<ul>
+<li>его тип (сбой или сообщение об ошибке; в тестовых сборках добавляется «test»);</li>
+<li>версия «Ритма» и Android, производитель и модель телефона и название сборки его системы (например, версия HyperOS);</li>
+<li>официальная ли это сборка «Ритма» или изменённая, каким приложением она установлена (например, Google Play) и первые 8 и последние 4 цифры отпечатка сертификата, которым она подписана;</li>
+<li>текст ошибки или слова, которые вы написали;</li>
+<li>случайный номер, созданный для этого отчёта, и время (UTC);</li>
+<li>журнал работы приложения (см. выше), не больше 300 последних строк;</li>
+<li>как закончились последние пять запусков приложения, как их записывает Android (например, закрыто пользователем, остановлено из-за памяти, сбой), с описанием, которое даёт Android;</li>
+<li>три настройки: язык приложения, включён ли голос и стиль карты.</li>
+</ul>
+<p>В отчёте нет геопозиции и никаких координат, маршрутов, тренировок, шагов, профиля (рост, вес, год рождения), имени, e-mail, аккаунта, рекламного идентификатора и идентификаторов устройства. Перед отправкой «Ритм» к тому же убирает из текста всё, что похоже на координату, адрес e-mail или IP-адрес, на случай, если их напечатало сообщение об ошибке. Номер отчёта ни с кем не связан, поэтому разработчик не может узнать, чей это отчёт; чтобы отчёт удалили, напишите на контактный адрес и опишите его.</p>
+<p>Разработчик читает отчёты, чтобы найти и исправить ошибки, и хранит отчёт только столько, сколько на это нужно. Google обрабатывает форму по собственному уведомлению: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Без сети отчёт ждёт на телефоне (не больше последних 3) и уходит при одном из следующих запусков.</p>
+
+<h3>То, что вы отправляете сами</h3>
+<p>Когда вы делитесь карточкой результата или файлом GPX, сохраняете резервную копию, отправляете сообщение об ошибке через другое приложение или открываете ссылку (страницы лицензий, музыкальный плеер, страница музыкального приложения в Play Маркете), «Ритм» передаёт содержимое системе: окну «Поделиться», выбору файла или браузеру. Оно уходит туда, куда вы выберете, и «Ритм» после этого его не видит. Резервная копия содержит все тренировки вместе с GPS-маршрутами, шаги по часам, настройки и профиль (рост, вес, пол и год рождения, ответы о вашем беге и пульс в покое, если вы их указали), поэтому храните файл там, где вы доверяете.</p>
+
+<h3>Голос и музыка</h3>
+<p>Голосовые подсказки произносит синтезатор речи, установленный на телефоне, автономными голосами. Слова составляются на телефоне, и «Ритм» никуда их не отправляет. Для музыки «Ритм» лишь посылает нажатия «воспроизвести», «пауза» и «дальше» плееру, который уже запущен; он не читает, что играет, и сам музыку не воспроизводит.</p>
+
+<h2>Чего «Ритм» не делает</h2>
+<ul>
+<li>нет аккаунта и входа, нет собственного сервера;</li>
+<li>нет рекламы и рекламного идентификатора;</li>
+<li>нет аналитики и слежки, нет стороннего сервиса или библиотеки для отчётов о сбоях (отчёты об ошибках, на которые вы согласились, уходят только в собственную форму разработчика, описанную выше), нет сторонних библиотек, которые что-либо собирают (библиотека карты, база данных и сетевая библиотека работают внутри приложения и ничего не отправляют);</li>
+<li>данные не продаются и никому не передаются, кроме сервиса форм, который доставляет отчёты об ошибках, на отправку которых вы согласились.</li>
+</ul>
+<p>Приложение отключает автоматическое облачное резервное копирование Android и перенос данных между устройствами. Чтобы перейти на новый телефон, используйте резервную копию в приложении («Я» → «Данные и копия»).</p>
+
+<h2>Хранение и удаление данных</h2>
+<p>Ваши данные остаются на телефоне, пока вы их не удалите: удалите тренировку в «Истории», либо очистите данные приложения или удалите приложение — тогда исчезнет всё. У разработчика нет копии ваших данных, поэтому на сервере удалять нечего; единственное исключение — отчёт об ошибке, на отправку которого вы согласились: он лежит в закрытой таблице разработчика только пока нужен, чтобы исправить проблему. Файлы резервной копии и экспорта, сохранённые вами в других местах, удаляете вы.</p>
+
+<h2>Ваши права</h2>
+<p>Поскольку разработчик не получает и не хранит персональные данные о вас (в отчёте об ошибке их нет, и он ни с кем не связан), на его стороне нечего запрашивать, исправлять, выгружать или стирать: ваши данные находятся под вашим контролем на телефоне. Чтобы удалили отчёт об ошибке, напишите на контактный адрес и опишите его. По вопросам о запросах карты обращайтесь к серверам, названным выше. По всему остальному пишите на контактный адрес.</p>
+
+<h2>Дети</h2>
+<p>«Ритм» не предназначен для детей младше 13 лет и сознательно не собирает данные ни о ком.</p>
+
+<h2>Безопасность</h2>
+<p>Данные лежат в закрытом хранилище приложения, которое другие приложения прочитать не могут, а запросы карты и отчёты об ошибках шифруются по HTTPS.</p>
+
+<h2>Замечание о здоровье</h2>
+<p>«Ритм» — приложение для фитнеса, а не медицинское устройство. Оно не диагностирует, не лечит и не предотвращает никакие заболевания. Калории, дистанция по шагам и распознавание бега и ходьбы — оценки. Перед началом новой программы тренировок проконсультируйтесь с врачом.</p>
+
+<h2>Изменения</h2>
+<p>Если политика изменится, новая версия появится на этой странице с новой датой.</p>
+</section>
+
+<!-- ═══════════════════════════ עברית ═══════════════════════════ -->
+<section id="he" lang="he" dir="rtl">
+<h1>ריטם — מדיניות פרטיות</h1>
+<p class="meta">עודכן לאחרונה: 5 באוקטובר 2026. חלה על אפליקציית האנדרואיד ריטם (app.ritm).</p>
+
+<h2>בקצרה</h2>
+<ul>
+<li>לריטם אין חשבונות ואין שרת משלה. המפתח לא מקבל מהאפליקציה שום מידע, מלבד דוחות שגיאה, ורק אם תסכים (ראה «דוחות שגיאה» בהמשך).</li>
+<li>המיקום, הצעדים, המשקל, הגובה, שנת הלידה, האימונים וההגדרות שלך נשארים בטלפון שלך.</li>
+<li>בלי פרסומות, בלי ניתוח נתונים ובלי מעקב; שום דבר לא נמכר.</li>
+<li>רק המפה, מדידת הטיפוס המצטבר של אימון, ואם תסכים גם דוחות שגיאה, משתמשים באינטרנט. המפה ומדידת הטיפוס טוענות נתוני מפה מ-OpenFreeMap ונתוני תבליט מ-Amazon Web Services, והשרתים האלה רואים את כתובת ה-IP שלך ואת החלק במפה שאתה מסתכל עליו, או בערך היכן היה האימון.</li>
+<li>דוחות שגיאה כבויים עד שתגיד «כן». הם כוללים את דגם הטלפון, הגרסאות, טקסט השגיאה ויומן הפעילות של האפליקציה, אבל לא מיקום, שם או דוא״ל, והם נשלחים לטופס Google פרטי של המפתח.</li>
+</ul>
+
+<h2>מי אחראי</h2>
+<p>ריטם נוצרה ומפורסמת על ידי מפתח יחיד, Peter. לכל שאלה בנושא פרטיות פנה אל <a href="https://github.com/ritm-run/ritm-run.github.io/issues" dir="ltr">github.com/ritm-run/ritm-run.github.io/issues</a>.</p>
+
+<h2>מה ריטם שומרת בטלפון שלך</h2>
+<p>כל זה נמצא באחסון הפרטי של האפליקציה בטלפון שלך. הוא נמחק כשאתה מסיר את ריטם או מנקה את הנתונים שלה, והאפליקציה לא מעתיקה אותו לשום מקום.</p>
+<ul>
+<li><strong>אימונים:</strong> מסלול ה-GPS (קו רוחב, קו אורך, גובה, מהירות, זמן ודיוק של כל נקודה), מרחק, זמן, קצב, צעדים, קלוריות מוערכות, חלוקה לקילומטרים ותוצאות מצבי המשחק ארנב וזאב.</li>
+<li><strong>צעדים:</strong> מספר הצעדים שלך לכל שעה, כפי שנקרא ממונה הצעדים של הטלפון.</li>
+<li><strong>פרופיל (לא חובה):</strong> גובה, משקל, מין ושנת לידה, וגם התשובות לשאלון הריצה (כולל הדופק במנוחה). ריטם משתמשת בהם בטלפון כדי להעריך קלוריות, את הקצב הקל שלך ותוכניות אינטרוולים. אפשר להשאיר אותם ריקים ולשנות בכל עת.</li>
+<li><strong>הגדרות והתקדמות:</strong> יעד צעדים, רצף, גביעים, ערכת נושא, שפה, אפשרויות קול ומפה, ואם תבחר — תמונת רקע (נבחרת בבורר התמונות של המערכת ומועתקת לאפליקציה).</li>
+<li><strong>רישום קריסה:</strong> אם האפליקציה קורסת, נשמר בטלפון קובץ טקסט קצר עם השגיאה, גרסת האפליקציה, דגם הטלפון וגרסת אנדרואיד. אם הסכמת לדוחות שגיאה, הוא נשלח בהפעלה הבאה ונמחק; אם לא, ריטם תציג אותו לך, והוא עוזב את הטלפון רק אם תקיש על «שלח» עבור הדוח הזה (ראה «דוחות שגיאה» בהמשך) או תבחר לשלוח אותו באפליקציה משלך.</li>
+<li><strong>יומן הפעילות ודוחות ממתינים:</strong> קובץ של 300 השורות הקצרות האחרונות על מה שהאפליקציה עשתה (השעה ב-UTC ומילים כמו "workout start" או "gps WEAK": אף פעם לא מקום או נתון של אימון), דוחות שלא ניתן היה לשלוח בגלל חוסר רשת (3 לכל היותר), והבחירה שלך לגבי דוחות שגיאה.</li>
+</ul>
+
+<h2>הרשאות ולמה הן נחוצות</h2>
+<ul>
+<li><strong>מיקום (מדויק וגס):</strong> כדי להקליט את המסלול שלך בזמן אימון ולהציג את מיקומך במסך ההתחלה כשהאפליקציה פתוחה. ריטם לא מבקשת מיקום ברקע. בזמן הקלטת אימון, שירות חזית שומר עליה פעילה עם התראה גלויה, והוא נעצר כשאתה מסיים.</li>
+<li><strong>פעילות גופנית:</strong> כדי לקרוא את מונה הצעדים של הטלפון.</li>
+<li><strong>התראות:</strong> לכפתורי האימון, לכרטיס הצעדים היומי ולתזכורת הערב לרצף (לא חובה).</li>
+<li><strong>שירות חזית (מיקום, בריאות):</strong> כדי שהקלטת האימון וספירת הצעדים לא ייפסקו כשהמסך נכבה.</li>
+<li><strong>הפעלה עם עליית הטלפון:</strong> כדי להחזיר את כרטיס הצעדים ואת קריאת הצעדים אחרי הפעלה מחדש.</li>
+<li><strong>אינטרנט:</strong> כדי לטעון את המפה ואת אריחי הגובה שמודדים את הטיפוס המצטבר של אימון (ראה בהמשך).</li>
+<li><strong>רטט ושמירה על המעבד ער:</strong> לאותות הרטט לבחירה ולכך שההקלטה תמשיך כשהמסך כבוי.</li>
+</ul>
+<p>ריטם לא מבקשת מאנדרואיד לפטור אותה מאופטימיזציית סוללה. מסך הכנת הטלפון רק פותח את הגדרות הסוללה של המערכת, ואתה מחליט מה לשנות שם.</p>
+
+<h2>מה יוצא מהטלפון שלך</h2>
+<h3>המפה</h3>
+<p>כשמפה מוצגת על המסך, ריטם מבקשת נתוני מפה ב-HTTPS מ:</p>
+<ul>
+<li><strong dir="ltr">tiles.openfreemap.org</strong> (OpenFreeMap): אריחי מפה וגופנים לתוויות המפה;</li>
+<li><strong dir="ltr">s3.amazonaws.com</strong> (Amazon Web Services, מאגר הנתונים הפתוח "Terrain Tiles"): אריחי גובה לתבליט מוצל.</li>
+</ul>
+<p>כל בקשה מכילה את כתובת אריח המפה (רמת זום ומיקום: ריבוע שאורך צלעו כ-1 עד 2.5 ק״מ), את כתובת ה-IP של הטלפון, ואת שם האפליקציה וגרסתה (user agent "app.ritm/…"). מאחר שהמפה עוקבת אחרי מיקומך, השרת יכול להבין בערך באיזה אזור אתה נמצא, אך לא את מיקומך המדויק. ריטם לא שולחת קואורדינטות GPS, חשבון, מזהי מכשיר או מזהה פרסום. נתוני המפה נשמרים בזיכרון המטמון של הטלפון.</p>
+<p>בטלפון בלי ברומטר ריטם מורידה גם אריחי גובה של אזור המסלול מאותו שירות Terrain Tiles, אחרי אימון או כשאתה פותח בהיסטוריה אימון קודם, כדי למדוד את הטיפוס המצטבר על מפת התבליט; כמו במפה, כל בקשה כזו מכילה רק את כתובת האריח, את כתובת ה-IP ואת ה-user agent של האפליקציה, בלי קואורדינטות.</p>
+<p>OpenFreeMap מצהירה במדיניות הפרטיות שלה שהיא לא שומרת כתובות IP ביומני הגישה (ובמקרה של חשד לניצול לרעה היא עשויה לתעד אותן עד 30 יום), לא משתמשת בעוגיות ובמעקב, ומוחקת את היומנים אחרי 7 ימים: <a href="https://openfreemap.org/privacy/" dir="ltr">openfreemap.org/privacy</a>. Amazon Web Services מטפלת בבקשות לפי ההודעה שלה: <a href="https://aws.amazon.com/privacy/" dir="ltr">aws.amazon.com/privacy</a>. לריטם אין שליטה בשירותים האלה.</p>
+<p>הקלטת אימון, ספירת צעדים וכל השאר עובדים בלי אינטרנט; רק המפה ומדידת הטיפוס המצטבר זקוקות לו.</p>
+
+<h3>דוחות שגיאה (רק אם תסכים)</h3>
+<p>בפעם הראשונה שיש מה לשלוח (האפליקציה קרסה, או שפתחת «דיווח על בעיה»), ריטם שואלת אם מותר לה לשלוח דוחות שגיאה למפתח. התשובה נשמרת ב«אני» ← «נתונים וגיבוי», ושם אפשר לשנות אותה בכל עת. עד שתגיד «כן» שום דבר לא נשלח מעצמו; כפתור שאתה לוחץ עליו עבור דוח אחד («שליחה למפתח») שולח את הדוח הזה בלבד, בלי קשר לבחירה שלך.</p>
+<p>דוח נשלח ב-HTTPS לטופס Google של המפתח (<strong dir="ltr">docs.google.com</strong>, Google Forms, Google LLC), ותשובות הטופס נכנסות לגיליון פרטי שרק המפתח פותח. הדוח כולל בדיוק את אלה:</p>
+<ul>
+<li>את סוגו (קריסה או דיווח על בעיה; בגרסאות בדיקה מתווספת המילה test);</li>
+<li>את גרסת ריטם ואנדרואיד, את יצרן הטלפון ודגמו ואת שם בניית המערכת שלו (למשל גרסת HyperOS);</li>
+<li>אם זו הגרסה הרשמית של ריטם או גרסה ששונתה, איזו אפליקציה התקינה אותה (למשל Google Play) ואת 8 הספרות הראשונות ו-4 האחרונות של טביעת האצבע של התעודה שהיא חתומה בה;</li>
+<li>את טקסט השגיאה, או את המילים שכתבת;</li>
+<li>מספר דוח אקראי שנוצר רק לדוח הזה, ואת השעה (UTC);</li>
+<li>את יומן הפעילות של האפליקציה (ראה למעלה), 300 שורות אחרונות לכל היותר;</li>
+<li>איך הסתיימו חמש ההרצות האחרונות של האפליקציה, כפי שאנדרואיד רושם אותן (למשל נסגרה על ידי המשתמש, נעצרה בגלל זיכרון, קריסה), עם התיאור שאנדרואיד נותן;</li>
+<li>שלוש הגדרות: שפת האפליקציה, אם ההנחיות הקוליות פועלות, וסגנון המפה.</li>
+</ul>
+<p>הדוח לא כולל מיקום או קואורדינטות כלשהן, מסלולים, אימונים, צעדים, פרופיל (גובה, משקל, שנת לידה), שם, דוא״ל, חשבון, מזהה פרסום או מזהי מכשיר. לפני השליחה ריטם גם מסירה מהטקסט כל מה שנראה כמו קואורדינטה, כתובת דוא״ל או כתובת IP, למקרה שהודעת שגיאה הדפיסה אחת מהן. מספר הדוח לא קשור אליך, ולכן המפתח לא יכול לדעת של מי הדוח; כדי שדוח יימחק, כתוב לכתובת הקשר ותאר אותו.</p>
+<p>המפתח קורא דוחות כדי למצוא ולתקן שגיאות ושומר דוח רק כל עוד זה נדרש. Google מטפלת בטופס לפי ההודעה שלה: <a href="https://policies.google.com/privacy" dir="ltr">policies.google.com/privacy</a>. בלי רשת הדוח ממתין בטלפון (3 האחרונים לכל היותר) ונשלח בהפעלה מאוחרת יותר.</p>
+
+<h3>מה שאתה שולח בעצמך</h3>
+<p>כשאתה משתף כרטיס תוצאה או קובץ GPX, שומר גיבוי, שולח דיווח על תקלה באפליקציה אחרת או פותח קישור (דפי רישיונות, נגן מוזיקה, דף של אפליקציית מוזיקה ב-Play Store), ריטם מעבירה את התוכן למערכת: לתפריט השיתוף, לבורר הקבצים או לדפדפן. הוא הולך לאן שתבחר, וריטם לא רואה אותו אחר כך. קובץ גיבוי מכיל את כל האימונים כולל מסלולי ה-GPS שלהם, את הצעדים לפי שעה, ואת ההגדרות והפרופיל שלך (גובה, משקל, מין ושנת לידה, תשובותיך על הריצה ודופק המנוחה, אם מילאת אותם), לכן שמור אותו במקום שאתה סומך עליו.</p>
+
+<h3>קול ומוזיקה</h3>
+<p>ההנחיות הקוליות מוקראות על ידי מנוע ההקראה (text-to-speech) המותקן בטלפון שלך, בקולות לא מקוונים. המילים מורכבות בטלפון וריטם לא שולחת אותן לשום מקום. לגבי מוזיקה, ריטם רק שולחת לחיצות של הפעלה, השהיה והבא לנגן שכבר פועל; היא לא קוראת מה מתנגן ולא מנגנת מוזיקה בעצמה.</p>
+
+<h2>מה ריטם לא עושה</h2>
+<ul>
+<li>אין חשבון או כניסה, ואין שרת משלה;</li>
+<li>אין פרסומות ואין מזהה פרסום;</li>
+<li>אין שירות ניתוח נתונים או מעקב, אין שירות או ספרייה של צד שלישי לדיווח קריסות (דוחות השגיאה שהסכמת לשלוח נשלחים רק לטופס של המפתח עצמו, כמתואר למעלה), ואין ספרייה של צד שלישי שאוספת מידע (ספריית המפה, מסד הנתונים וספריית הרשת פועלות בתוך האפליקציה ולא שולחות דבר);</li>
+<li>שום מידע לא נמכר ולא מועבר לאיש, מלבד שירות הטפסים שמוביל את דוחות השגיאה שהסכמת לשלוח.</li>
+</ul>
+<p>האפליקציה מכבה את הגיבוי האוטומטי לענן של אנדרואיד ואת ההעברה בין מכשירים עבור הנתונים שלה. כדי לעבור לטלפון חדש השתמש בגיבוי שבתוך האפליקציה («אני» ← «נתונים וגיבוי»).</p>
+
+<h2>שמירה ומחיקה של נתונים</h2>
+<p>הנתונים שלך נשארים בטלפון עד שתסיר אותם: מחק אימון בהיסטוריה, או נקה את נתוני האפליקציה או הסר אותה כדי למחוק הכול. למפתח אין עותק של הנתונים שלך, ולכן אין מה למחוק בשרת; היוצא מן הכלל היחיד הוא דוח שגיאה שהסכמת לשלוח, והוא נשמר בגיליון הפרטי של המפתח רק כל עוד נדרש כדי לתקן את הבעיה. קובצי גיבוי או ייצוא ששמרת במקומות אחרים הם באחריותך למחוק.</p>
+
+<h2>הזכויות שלך</h2>
+<p>מכיוון שהמפתח לא מקבל ולא שומר עליך מידע אישי (דוח שגיאה לא כולל כזה ואינו קשור לאיש), אין בצד שלו מה לעיין בו, לתקן, לייצא או למחוק: הנתונים שלך בשליטתך בטלפון. כדי שדוח שגיאה יימחק, כתוב לכתובת הקשר ותאר אותו. בנוגע לבקשות המפה פנה לשרתים שצוינו למעלה. בכל עניין אחר כתוב לכתובת הקשר.</p>
+
+<h2>ילדים</h2>
+<p>ריטם אינה מיועדת לילדים מתחת לגיל 13 ואינה אוספת ביודעין מידע מאף אחד.</p>
+
+<h2>אבטחה</h2>
+<p>הנתונים שלך נשמרים באחסון הפרטי של האפליקציה, שאפליקציות אחרות לא יכולות לקרוא, ובקשות המפה ודוחות השגיאה מוצפנים ב-HTTPS.</p>
+
+<h2>הערה בנושא בריאות</h2>
+<p>ריטם היא אפליקציית כושר ולא מכשיר רפואי. היא לא מאבחנת, לא מטפלת, לא מרפאה ולא מונעת שום מצב רפואי. קלוריות, מרחק שמוערך לפי צעדים וזיהוי ריצה והליכה הם הערכות. התייעץ עם רופא לפני שאתה מתחיל תוכנית אימונים חדשה.</p>
+
+<h2>שינויים</h2>
+<p>אם המדיניות תשתנה, הגרסה החדשה תפורסם בדף זה עם תאריך חדש.</p>
+</section>
+</main>
+</body>
+</html>
